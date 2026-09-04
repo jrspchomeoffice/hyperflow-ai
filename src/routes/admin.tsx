@@ -415,12 +415,12 @@ function Simulator({
       createdAt: new Date().toISOString(),
       week: 1,
       days: Array.from({ length: days }, (_, i) => {
-        const group = groups[i % groups.length];
+        const group = groups[i % groups.length] ?? "Geral";
         const pool = exercises.filter((e) => e.group === group);
         const picked = (pool.length ? pool : exercises).slice(0, 4);
         return {
-          id: labels[i].toLowerCase().replace("á", "a"),
-          label: labels[i],
+          id: (labels[i] ?? `d${i}`).toLowerCase().replace("á", "a"),
+          label: labels[i] ?? `D${i + 1}`,
           focus: `${group} • foco em ${form.goal.toLowerCase()}`,
           estimatedMinutes: `${35 + setCount * 3}-${45 + setCount * 3} min`,
           exercises: picked.map((e) => ({

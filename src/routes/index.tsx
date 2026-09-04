@@ -64,7 +64,7 @@ function Dashboard() {
   }, [restRunning]);
 
   const byId = useMemo(() => new Map(exercises.map((e) => [e.id, e])), [exercises]);
-  const day = routine.days.find((d) => d.id === dayId) ?? routine.days[0];
+  const day = routine.days.find((d) => d.id === dayId) ?? routine.days[0] ?? DEFAULT_ROUTINE.days[0]!;
   const quote = DAILY_QUOTES[dailyIndex(DAILY_QUOTES.length)];
 
   const resolved = useMemo(
