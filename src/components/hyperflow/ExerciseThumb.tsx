@@ -41,16 +41,18 @@ export function ExerciseThumb({
         decoding="async"
         className="absolute inset-0 size-full object-cover"
       />
-      <span className="absolute top-2 left-2 rounded-md bg-primary px-2 py-0.5 text-[10px] font-semibold tracking-[0.14em] text-primary-foreground uppercase">
+      <span
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-background/90 to-transparent"
+      />
+      <span className="absolute top-1.5 left-1.5 rounded-md bg-primary px-1.5 py-0.5 text-[9px] font-semibold tracking-[0.14em] text-primary-foreground uppercase">
         {exercise.group}
       </span>
-      <span className="absolute bottom-2 left-2 max-w-[80%] truncate text-[11px] font-medium text-muted-foreground">
-        {exercise.muscle}
+      <span className="absolute right-1.5 bottom-1.5 flex size-7 items-center justify-center rounded-full border border-border/80 bg-background/70 backdrop-blur-sm transition-transform group-active:scale-95">
+        <Play className="size-3 translate-x-px text-metric" />
       </span>
-      <span className="absolute inset-0 flex items-center justify-center">
-        <span className="flex size-11 items-center justify-center rounded-full border border-border/80 bg-background/55 backdrop-blur-sm transition-transform group-active:scale-95">
-          <Play className="size-4 translate-x-px text-metric" />
-        </span>
+      <span className="absolute bottom-1.5 left-1.5 max-w-[72%] truncate text-[10px] font-medium text-foreground/90">
+        {exercise.muscle}
       </span>
     </button>
   );
