@@ -50,14 +50,10 @@ export function ExerciseModal({
 
       <div className="flex-1 overflow-y-auto px-4 pb-8">
         <div className="relative mt-3 aspect-video w-full overflow-hidden rounded-xl border border-border bg-linear-to-br from-primary/20 via-surface to-surface-2">
-          <video
+          <img
             className="size-full object-cover"
             src={exercise.videoUrl}
-            playsInline
-            muted
-            loop
-            autoPlay
-            controls
+            alt={`Animação de execução ampliada: ${exercise.name}`}
           />
           <span className="pointer-events-none absolute right-2 bottom-2 rounded bg-background/70 px-2 py-0.5 text-[10px] text-muted-foreground">
             Animação de execução
