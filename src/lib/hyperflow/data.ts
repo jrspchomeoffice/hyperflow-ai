@@ -1,7 +1,7 @@
 import type { AdminConfig, Exercise, Routine } from "./types";
 
 const GIF = (folder: string, slug: string) =>
-  `https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.1.0/${folder}/${slug}.gif`;
+  `https://cdn.jsdelivr.net/gh/JahelCuadrado/ExerciseGymGifsDB@v1.2.0/${folder}/${slug}.gif`;
 
 export const DEFAULT_EXERCISES: Exercise[] = [
   {
@@ -9,7 +9,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Supino Reto com Barra",
     group: "Peito",
     muscle: "Peitoral Maior Esternal",
-    videoUrl: GIF("chest", "barbell-bench-press"),
+    videoUrl: GIF("pectorals", "barbell-bench-press"),
     equivalentId: "peck-deck",
     cue: "Controle a fase excêntrica em 2 segundos e mantenha o cotovelo a 45 graus em relação ao tronco.",
     steps: [
@@ -29,7 +29,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Supino Inclinado com Halteres",
     group: "Peito",
     muscle: "Peitoral Superior Clavicular",
-    videoUrl: GIF("chest", "incline-dumbbell-bench-press"),
+    videoUrl: GIF("pectorals", "dumbbell-incline-bench-press"),
     equivalentId: "bench-press",
     cue: "Banco a 30 graus é suficiente: acima disso o deltoide assume o trabalho.",
     steps: [
@@ -45,7 +45,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Crossover / Peck Deck na Máquina",
     group: "Peito",
     muscle: "Peitoral Maior (Estímulo Isolado)",
-    videoUrl: GIF("chest", "butterfly"),
+    videoUrl: GIF("pectorals", "lever-seated-fly"),
     equivalentId: "bench-press",
     cue: "Pause 1 segundo na contração máxima antes de retornar, mantendo a lombar apoiada.",
     steps: [
@@ -64,7 +64,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Puxada Alta no Pulley",
     group: "Costas",
     muscle: "Grande Dorsal",
-    videoUrl: GIF("back", "lat-pulldown"),
+    videoUrl: GIF("lats", "cable-lat-pulldown-full-range-of-motion"),
     equivalentId: "bent-over-row",
     cue: "Puxe com os cotovelos em direção ao bolso, sem inclinar o tronco além de 15 graus.",
     steps: [
@@ -80,7 +80,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Remada Baixa no Triângulo (Polia)",
     group: "Costas",
     muscle: "Dorsal e Rombóides",
-    videoUrl: GIF("back", "seated-cable-row"),
+    videoUrl: GIF("upper-back", "cable-seated-row"),
     equivalentId: "lat-pulldown",
     cue: "Aperte as escápulas por 1 segundo no fim de cada repetição.",
     steps: [
@@ -96,7 +96,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Remada Curvada com Barra",
     group: "Costas",
     muscle: "Costas Completa",
-    videoUrl: GIF("back", "barbell-bent-over-row"),
+    videoUrl: GIF("upper-back", "barbell-bent-over-row"),
     equivalentId: "seated-row",
     cue: "Tronco a 45 graus e coluna rígida: o movimento é do cotovelo, não da lombar.",
     steps: [
@@ -112,7 +112,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Agachamento Livre",
     group: "Pernas",
     muscle: "Quadríceps e Glúteos",
-    videoUrl: GIF("legs", "barbell-squat"),
+    videoUrl: GIF("glutes", "barbell-full-squat"),
     equivalentId: "leg-press",
     cue: "Joelho passa à frente do pé: isso é normal e protege o quadril se o tronco ficar rígido.",
     steps: [
@@ -131,7 +131,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Leg Press 45",
     group: "Pernas",
     muscle: "Quadríceps",
-    videoUrl: GIF("legs", "leg-press"),
+    videoUrl: GIF("glutes", "sled-45-leg-press"),
     equivalentId: "barbell-squat",
     cue: "Pés um pouco mais baixos na plataforma aumentam o estímulo no quadríceps.",
     steps: [
@@ -147,7 +147,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Cadeira Extensora",
     group: "Pernas",
     muscle: "Reto Femoral / Quadríceps",
-    videoUrl: GIF("legs", "leg-extension"),
+    videoUrl: GIF("quads", "lever-leg-extension"),
     equivalentId: "leg-press",
     cue: "Segure 1 segundo na extensão máxima para maximizar a contração do quadríceps.",
     steps: [
@@ -163,7 +163,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Mesa Flexora",
     group: "Pernas",
     muscle: "Posteriores de Coxa",
-    videoUrl: GIF("legs", "lying-leg-curl"),
+    videoUrl: GIF("hamstrings", "lever-lying-leg-curl"),
     equivalentId: "bulgarian-split-squat",
     cue: "Mantenha o quadril colado no banco durante toda a série.",
     steps: [
@@ -179,7 +179,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Agachamento Búlgaro (com Halteres)",
     group: "Pernas",
     muscle: "Glúteos e Quadríceps Unilateral",
-    videoUrl: GIF("legs", "dumbbell-single-leg-split-squat"),
+    videoUrl: GIF("quads", "dumbbell-single-leg-split-squat"),
     equivalentId: "barbell-squat",
     cue: "Tronco levemente à frente aumenta o glúteo; tronco vertical prioriza o quadríceps.",
     steps: [
@@ -195,7 +195,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Desenvolvimento com Halteres",
     group: "Ombro",
     muscle: "Deltoide Anterior",
-    videoUrl: GIF("shoulders", "dumbbell-shoulder-press"),
+    videoUrl: GIF("delts", "dumbbell-seated-shoulder-press"),
     equivalentId: "lateral-raise",
     cue: "Costelas para baixo e abdômen firme: evita compensar arqueando a lombar.",
     steps: [
@@ -211,7 +211,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Elevação Lateral com Halteres",
     group: "Ombro",
     muscle: "Deltoide Lateral",
-    videoUrl: GIF("shoulders", "dumbbell-lateral-raise"),
+    videoUrl: GIF("delts", "dumbbell-lateral-raise"),
     equivalentId: "db-shoulder-press",
     cue: "Lidere o movimento com o cotovelo, não com a mão, e pare na linha dos ombros.",
     steps: [
@@ -230,7 +230,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Crucifixo Invertido / Peck Deck Invertido",
     group: "Ombro",
     muscle: "Deltoide Posterior",
-    videoUrl: GIF("shoulders", "reverse-fly"),
+    videoUrl: GIF("delts", "lever-seated-reverse-fly"),
     equivalentId: "lateral-raise",
     cue: "Pense em abrir os braços com o cotovelo fixo, sem juntar as escápulas com força.",
     steps: [
@@ -246,7 +246,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Tríceps Pulley na Polia (Corda)",
     group: "Tríceps",
     muscle: "Tríceps (Cabeça Lateral)",
-    videoUrl: GIF("arms", "cable-rope-pushdown"),
+    videoUrl: GIF("triceps", "cable-pushdown-with-rope-attachment"),
     equivalentId: "triceps-testa",
     cue: "Cotovelos colados ao tronco: apenas o antebraço se move.",
     steps: [
@@ -262,7 +262,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Tríceps Testa",
     group: "Tríceps",
     muscle: "Tríceps (Cabeça Longa)",
-    videoUrl: GIF("arms", "cable-lying-triceps-extension"),
+    videoUrl: GIF("triceps", "barbell-lying-triceps-extension-skull-crusher"),
     equivalentId: "triceps-rope",
     cue: "Alongue bem a cabeça longa: desça até sentir tensão atrás do braço.",
     steps: [
@@ -278,7 +278,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Rosca Direta com Barra W",
     group: "Bíceps",
     muscle: "Bíceps Braquial",
-    videoUrl: GIF("arms", "ez-bar-curl"),
+    videoUrl: GIF("biceps", "ez-barbell-curl"),
     equivalentId: "hammer-curl",
     cue: "Cotovelo travado na lateral do tronco; sem balanço de ombro.",
     steps: [
@@ -294,7 +294,7 @@ export const DEFAULT_EXERCISES: Exercise[] = [
     name: "Rosca Martelo com Halteres",
     group: "Bíceps",
     muscle: "Braquiorradial e Bíceps",
-    videoUrl: GIF("arms", "dumbbell-hammer-curl"),
+    videoUrl: GIF("biceps", "dumbbell-hammer-curl"),
     equivalentId: "biceps-curl",
     cue: "Pegada neutra durante todo o movimento: o punho não gira.",
     steps: [
