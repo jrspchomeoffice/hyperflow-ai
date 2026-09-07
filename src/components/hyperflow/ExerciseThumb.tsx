@@ -34,13 +34,12 @@ export function ExerciseThumb({
         className,
       )}
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(115deg, oklch(1 0 0 / 0.045) 0 2px, transparent 2px 9px)",
-        }}
+      <img
+        src={exercise.videoUrl}
+        alt={`Animação de execução: ${exercise.name}`}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 size-full object-cover"
       />
       <span className="absolute top-2 left-2 rounded-md bg-primary px-2 py-0.5 text-[10px] font-semibold tracking-[0.14em] text-primary-foreground uppercase">
         {exercise.group}
