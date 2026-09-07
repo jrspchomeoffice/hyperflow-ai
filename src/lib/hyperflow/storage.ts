@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
 export const STORAGE_KEYS = {
-  exercises: "hyperflow.exercises",
-  routine: "hyperflow.routine",
+  exercises: "hyperflow.exercises.v2",
+  routine: "hyperflow.routine.v2",
   log: "hyperflow.log",
   config: "hyperflow.config",
   admin: "hyperflow.admin.unlocked",
