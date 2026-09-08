@@ -58,7 +58,7 @@ export function RestBar({
         </button>
 
         <div className="min-w-0 flex-1">
-          <p className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+          <p className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.16em] text-foreground">{formatClock(seconds)}</p>-muted-foreground uppercase">
             <Timer className="size-3" />
             {finished ? "Descanso concluído — próxima série" : "Descanso"}
           </p>
