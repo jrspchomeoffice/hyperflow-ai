@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Pause, Play, RotateCcw, Timer } from "lucide-react";
+import { Minus, Pause, Play, Plus, RotateCcw, Timer } from "lucide-react";
 import { formatClock } from "@/lib/hyperflow/storage";
 import { cn } from "@/lib/utils";
 
@@ -58,7 +58,7 @@ export function RestBar({
         </button>
 
         <div className="min-w-0 flex-1">
-          <p className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.16em] text-foreground">{formatClock(seconds)}</p>-muted-foreground uppercase">
+          <p className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
             <Timer className="size-3" />
             {finished ? "Descanso concluído — próxima série" : "Descanso"}
           </p>
@@ -72,26 +72,30 @@ export function RestBar({
           </p>
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5">
+        <div className="flex shrink-0 items-center gap-1">
           <button
             type="button"
-            onClick={() => onAdd(60)}
-            className="rounded-lg border border-border bg-secondary px-2.5 py-2 text-[11px] font-semibold"
+            onClick={() => onAdd(-10)}
+            disabled={seconds <= 10}
+            aria-label="Diminuir 10 segundos"
+            className="flex size-9 items-center justify-center rounded-lg border border-border bg-secondary text-foreground disabled:cursor-not-allowed disabled:opacity-40"
           >
-            +60s
+            <Minus className="size-4" />
           </button>
+          <span className="min-w-10 text-center text-[10px] font-bold text-muted-foreground">10s</span>
           <button
             type="button"
-            onClick={() => onAdd(120)}
-            className="rounded-lg border border-border bg-secondary px-2.5 py-2 text-[11px] font-semibold"
+            onClick={() => onAdd(10)}
+            aria-label="Aumentar 10 segundos"
+            className="flex size-9 items-center justify-center rounded-lg border border-border bg-secondary text-foreground"
           >
-            +120s
+            <Plus className="size-4" />
           </button>
           <button
             type="button"
             onClick={onReset}
             aria-label="Zerar cronômetro"
-            className="flex size-9 items-center justify-center rounded-lg border border-border bg-secondary text-muted-foreground"
+            className="ml-0.5 flex size-9 items-center justify-center rounded-lg border border-border bg-secondary text-muted-foreground"
           >
             <RotateCcw className="size-4" />
           </button>
