@@ -30,6 +30,15 @@ export function useLocalState<T>(key: string, initial: T) {
     if (!hydrated) return;
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
+      if (key === STORAGE_KEYS.log && typeof value === "object" && value !== null) {
+        const hasCompletedSet = Object.values(value as Record<string, { done?: boolean }>).some((entry) => entry?.done);
+        if (hasCompletedSet) {
+          const rawDates = window.localStorage.getItem(STORAGE_KEYS.workoutDates);
+          const dates = rawDates ? (JSON.parse(rawDates) as string[]) : [];
+          const today = todayKey();
+          if (!dates.includes(today)) window.localStorage.setItem(STORAGE_KEYS.workoutDates, JSON.stringify([...dates, today]));
+        }
+      }
     } catch {
       /* storage full or unavailable */
     }
