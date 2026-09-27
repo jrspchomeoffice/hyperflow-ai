@@ -7,12 +7,11 @@ export const STORAGE_KEYS = {
   config: "hyperflow.config",
   admin: "hyperflow.admin.unlocked",
   swaps: "hyperflow.swaps",
+  workoutDates: "hyperflow.workoutDates",
+  password: "hyperflow.appPassword",
+  session: "hyperflow.appSession",
 } as const;
 
-/**
- * LocalStorage-backed state. Reads happen after hydration to keep SSR markup
- * stable, then the stored value replaces the default.
- */
 export function useLocalState<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(initial);
   const [hydrated, setHydrated] = useState(false);
@@ -37,15 +36,17 @@ export function useLocalState<T>(key: string, initial: T) {
   }, [key, value, hydrated]);
 
   const reset = useCallback(() => setValue(initial), [initial]);
-
   return { value, setValue, hydrated, reset } as const;
+}
+
+export function todayKey() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 }
 
 export function dailyIndex(length: number) {
   const now = new Date();
-  const dayNumber = Math.floor(
-    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000,
-  );
+  const dayNumber = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
   return ((dayNumber % length) + length) % length;
 }
 
